@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Persian RTL Toggle",
+  "version": "1.1",
+  "description": "تغییر جهت صفحات وب به راست‌چین برای فارسی – با کلید میانبر",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "toggle-rtl": {
+      "suggested_key": {
+        "default": "Alt+Shift+R"
+      },
+      "description": "تغییر حالت راست‌چین (RTL)"
+    }
+  }
+}
